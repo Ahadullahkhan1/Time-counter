@@ -5,63 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Time Counter</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            height: 100vh;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .clock {
-            backdrop-filter: blur(15px) saturate(180%);
-            -webkit-backdrop-filter: blur(15px) saturate(180%);
-            background-color: rgba(161, 151, 127, 0.28);
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.125);
-
-            font-size: 50px;
-            height: 300px;
-            width: 600px;
-            box-shadow: 0 0 8px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .time,
-        .btn {
-            display: flex;
-            align-items: center;
-            height: 50%;
-            width: 100%;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            justify-content: space-evenly;
-        }
-
-        .btn button {
-            padding: 15px 25px;
-            border: none;
-            background-color: coral;
-            box-shadow: 0 0 10px 9px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            cursor: pointer;
-            outline: none;
-        }
-
-        video {
-            height: 100%;
-            width: 100%;
-            object-fit: cover;
-            position: absolute;
-            z-index: -1;
-
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -78,38 +22,7 @@
         </div>
     </div>
 
-    <script>
-        let hour = document.getElementById("hour");
-        let min = document.getElementById("min");
-        let sec = document.getElementById("sec");
-        let start = document.getElementById('start');
-        let stop = document.getElementById('stop');
-        let inter;
-        let counter = 0;
-
-        start.addEventListener('click', () => {
-            clearInterval(inter);
-            inter = setInterval(() => {
-                counter++;
-                sec.innerText = String(counter % 60).padStart(2, '0');
-                min.innerText = String(Math.floor(counter / 60) % 60).padStart(2, '0');
-                hour.innerText = String(Math.floor(counter / 3600)).padStart(2, '0');
-            }, 1000);
-            start.style.backgroundColor = 'green'
-            start.style.transition = '0.4s'
-            if (start.style.backgroundColor = 'green' == 'green') {
-                stop.style.backgroundColor = 'coral'
-            }
-        });         
-        stop.addEventListener('click', () => {
-            clearInterval(inter);
-            console.log("Stopped");
-            stop.style.transition = '0.4s'
-            start.style.backgroundColor = 'coral'
-            stop.style.backgroundColor = 'red'
-
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>
